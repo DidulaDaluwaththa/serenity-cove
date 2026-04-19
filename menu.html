@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Full Menu | Serenity Cove | Ella, Sri Lanka</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sand: '#E3DACF',      // DLX1072-2 Sandy Beach
+                        darknight: '#454341', // Pantone 18-0307 TCX
+                        dachshund: '#6A4A3A', // Pantone 18-1033 TCX
+                        buckthorn: '#9C6D33', // Pantone 18-0935 TCX
+                        treetop: '#4B5E40',   // Pantone 18-0135 TCX
+                        bluejay: '#3C7A9E',   // Pantone 17-4427 TCX
+                        daphne: '#2A5C8A'     // Pantone 18-4045 TCX
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* Updated Body Colors */
+        body { background-color: #E3DACF; color: #454341; overflow-x: hidden; }
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        
+        .reveal-up { opacity: 0; transform: translateY(30px); }
+        .reveal-left { opacity: 0; transform: translateX(-20px); }
+        
+        /* Custom glow to separate text from complex backgrounds */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(227, 218, 207, 0.9), 0 0 40px rgba(227, 218, 207, 0.7);
+        }
+        
+        /* Menu Layout Styling - Light Theme */
+        .menu-category-title { border-bottom: 2px solid #9C6D33; padding-bottom: 1rem; margin-bottom: 2.5rem; color: #454341; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; font-size: 1.8rem; }
+        .price-line { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.25rem; }
+        .dots { flex-grow: 1; border-bottom: 1px dotted rgba(69, 67, 65, 0.3); margin: 0 0.5rem; } 
+        .menu-item-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: #454341; }
+        .menu-item-desc { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: rgba(69, 67, 65, 0.7); font-style: italic; line-height: 1.5; }
+        .menu-price { font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #454341; white-space: nowrap; font-weight: 500; }
+        
+        /* Diet Badges - Mapped to your Pantone colors */
+        .badge { display: inline-block; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 6px; border-radius: 3px; margin-left: 8px; vertical-align: middle; font-family: 'Inter', sans-serif; font-style: normal; font-weight: 600;}
+        .badge-vegan { border: 1px solid #4B5E40; color: #4B5E40; } 
+        .badge-spicy { border: 1px solid #6A4A3A; color: #6A4A3A; } 
+        .badge-gf { border: 1px solid #2A5C8A; color: #2A5C8A; } 
+        .badge-sig { border: 1px solid #9C6D33; color: #9C6D33; background: rgba(156, 109, 51, 0.1); } 
+    </style>
+</head>
+<body>
+
+    <div id="nav-placeholder"></div>
+
+    <section class="relative h-screen overflow-hidden" id="hero">
+        <div id="hero-bg" class="absolute inset-0 w-full h-full scale-110 opacity-0">
+            <img src="menu-hero.jpg" alt="Cave dining menu" class="w-full h-full object-cover block">
+            
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-sand/10 to-sand"></div>
+            
+            <div class="absolute inset-0 bg-gradient-to-r from-sand/70 via-sand/30 to-transparent w-full md:w-3/4"></div>
+        </div>
+        
+        <div class="relative h-full flex items-center" id="hero-text">
+            <div class="max-w-7xl mx-auto px-6 md:px-12 w-full">
+                <div class="max-w-2xl relative z-10">
+                    <h1 class="text-darknight mb-6 font-serif leading-[1.1] tracking-tight uppercase text-glow" style="font-size: clamp(3.5rem, 10vw, 7rem); font-weight: 500;">
+                        The Menu
+                    </h1>
+                    <p class="text-darknight mb-8 font-sans font-medium tracking-wider leading-relaxed text-glow" style="font-size: clamp(1rem, 2vw, 1.25rem);">
+                        Sri Lankan Fusion Root-to-Plate.<br>A Zero Waste Dining Experience.
+                    </p>
+                    <a href="reserve.html">
+                        <button class="px-10 py-4 bg-treetop text-sand font-sans text-xs font-bold tracking-[0.2em] uppercase hover:bg-darknight active:scale-95 transition-all shadow-lg">
+                            Reserve Your Table
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-darknight/5 border-b border-darknight/10">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal-left">
+                <h2 class="text-darknight mb-6 font-serif text-4xl md:text-5xl font-medium tracking-wide">Signature Highlights</h2>
+                <p class="text-darknight/80 mb-8 font-sans leading-relaxed text-sm">
+                    Discover the culinary pillars of Serenity Cove. These creations represent our ethos—using ancient, foundational techniques to create timeless, modern experiences.
+                </p>
+                <div class="space-y-4 font-sans font-medium text-darknight/80 text-sm">
+                    <div class="flex items-center gap-4"><div class="w-2 h-2 bg-buckthorn rounded-full"></div>Serenity Egg Benedict</div>
+                    <div class="flex items-center gap-4"><div class="w-2 h-2 bg-buckthorn rounded-full"></div>Crispy Chicken Kottu Burger</div>
+                    <div class="flex items-center gap-4"><div class="w-2 h-2 bg-buckthorn rounded-full"></div>Cinabun Caramel French Toast</div>
+                    <div class="flex items-center gap-4"><div class="w-2 h-2 bg-buckthorn rounded-full"></div>Cove Signature Seafood Curry Trio</div>
+                </div>
+            </div>
+            <div class="reveal-up border border-darknight/10 p-10 bg-white/40 backdrop-blur-md rounded-sm shadow-sm">
+                <h2 class="text-darknight mb-6 font-serif text-3xl font-medium tracking-wide text-center">Dietary Guide</h2>
+                <div class="flex flex-col gap-4 items-center justify-center font-sans text-sm">
+                    <div class="flex items-center gap-3"><span class="badge badge-vegan">Vegan</span> <span class="text-darknight/70">100% Plant-Based ingredients.</span></div>
+                    <div class="flex items-center gap-3"><span class="badge badge-gf">GF</span> <span class="text-darknight/70">Gluten-Free preparation.</span></div>
+                    <div class="flex items-center gap-3"><span class="badge badge-spicy">Spicy</span> <span class="text-darknight/70">Contains bold Sri Lankan heat.</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 max-w-7xl mx-auto">
+        
+        <div class="text-center mb-24 reveal-up">
+            <h2 class="text-darknight font-serif text-5xl md:text-6xl tracking-widest uppercase">A La Carte</h2>
+            <p class="text-buckthorn font-sans mt-4 tracking-widest text-sm uppercase font-medium">Curated Dining Experience</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-x-20 gap-y-24 mb-32">
+            <div class="reveal-up">
+                <h3 class="menu-category-title font-serif">Starters</h3>
+                <div class="space-y-8">
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Lagoon Mist Prawn Infusion <span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 2900</span></div>
+                        <p class="menu-item-desc">Butter poached prawns presented under aromatic mist with coconut foam lime chili vapor and crispy curry leaves.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">String Hopper Tacos Trio <span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 2200</span></div>
+                        <p class="menu-item-desc">Crispy mini string hopper tacos filled with spiced chicken mushroom curry and pol sambol.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Beetroot Cured Reef Fish</h4><span class="dots"></span><span class="menu-price">LKR 2400</span></div>
+                        <p class="menu-item-desc">Fresh reef fish cured in beetroot citrus and spices served with king coconut gel.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Smoked Jackfruit & Cashew Croquettes <span class="badge badge-vegan">Vegan</span></h4><span class="dots"></span><span class="menu-price">LKR 2100</span></div>
+                        <p class="menu-item-desc">Golden fried croquettes filled with smoky jackfruit and cashew paired with curry leaf aioli.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Spiced Lotus Root Chips <span class="badge badge-vegan">Vegan</span><span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 1800</span></div>
+                        <p class="menu-item-desc">Crispy lotus root slices with spices served with coconut herb dip.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Cinnamon Chicken Skewers</h4><span class="dots"></span><span class="menu-price">LKR 2200</span></div>
+                        <p class="menu-item-desc">Grilled chicken with cinnamon spices finished with tamarind glaze.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Spiced Coconut & Lentil Patties <span class="badge badge-vegan">Vegan</span></h4><span class="dots"></span><span class="menu-price">LKR 1900</span></div>
+                        <p class="menu-item-desc">Crispy patties with lentils coconut and spices served with tamarind sauce.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Grilled Pineapple & Chilli Salad <span class="badge badge-vegan">Vegan</span><span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 1800</span></div>
+                        <p class="menu-item-desc">Charred pineapple with chilli lime herbs and coconut flakes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal-up">
+                <h3 class="menu-category-title font-serif">Soups</h3>
+                <div class="space-y-8">
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Lagoon Crab & Coconut Bisque</h4><span class="dots"></span><span class="menu-price">LKR 2400</span></div>
+                        <p class="menu-item-desc">Rich creamy soup made from roasted crab shells and coconut milk.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Forest Herbal Clear Broth <span class="badge badge-vegan">Vegan</span></h4><span class="dots"></span><span class="menu-price">LKR 1500</span></div>
+                        <p class="menu-item-desc">Light broth made from vegetable trimmings and herbs.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Golden Dhal Veloute <span class="badge badge-vegan">Vegan</span></h4><span class="dots"></span><span class="menu-price">LKR 1600</span></div>
+                        <p class="menu-item-desc">Smooth lentil soup with garlic oil and crispy shallots.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Roasted Pumpkin & Coconut Soup <span class="badge badge-vegan">Vegan</span></h4><span class="dots"></span><span class="menu-price">LKR 1700</span></div>
+                        <p class="menu-item-desc">Creamy roasted pumpkin with coconut milk and spices.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-32 reveal-up">
+            <h3 class="menu-category-title font-serif text-center mb-16">Main Courses</h3>
+            <div class="grid md:grid-cols-2 gap-x-20 gap-y-12">
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Cove Signature Seafood Curry Trio <span class="badge badge-sig">Sig</span></h4><span class="dots"></span><span class="menu-price">LKR 4800</span></div>
+                    <p class="menu-item-desc">Lobster prawns and reef fish in three coconut curries.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Grilled Reef Fish with Gotukola Pesto</h4><span class="dots"></span><span class="menu-price">LKR 3800</span></div>
+                    <p class="menu-item-desc">Fresh grilled fish with tamarind glaze and gotukola pesto.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Ceylon Spiced Crab Ravioli</h4><span class="dots"></span><span class="menu-price">LKR 4200</span></div>
+                    <p class="menu-item-desc">Handmade ravioli with crab in coconut curry sauce.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Chilli Garlic Butter Prawns <span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 3900</span></div>
+                    <p class="menu-item-desc">Prawns sautéed with garlic butter chilli and lime.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Kithul Glazed Pork Belly</h4><span class="dots"></span><span class="menu-price">LKR 4200</span></div>
+                    <p class="menu-item-desc">Slow cooked pork belly with kithul treacle glaze.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Cinnamon Smoked Chicken Supreme</h4><span class="dots"></span><span class="menu-price">LKR 3500</span></div>
+                    <p class="menu-item-desc">Grilled chicken with coconut mash and spiced jus.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Sri Lankan Spiced Beef Rendang Fusion <span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 4000</span></div>
+                    <p class="menu-item-desc">Slow cooked beef in rich spices.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Lamb Curry Ravioli</h4><span class="dots"></span><span class="menu-price">LKR 4200</span></div>
+                    <p class="menu-item-desc">Pasta filled with lamb curry finished with curry leaf oil.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Charred Eggplant with Coconut Cream <span class="badge badge-vegan">Vegan</span></h4><span class="dots"></span><span class="menu-price">LKR 2800</span></div>
+                    <p class="menu-item-desc">Smoky eggplant with coconut cream and peanut crumble.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Spiced Pumpkin & Cashew Curry Bowl <span class="badge badge-vegan">Vegan</span></h4><span class="dots"></span><span class="menu-price">LKR 2600</span></div>
+                    <p class="menu-item-desc">Roasted pumpkin with mild spices and cashews.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Jackfruit Pulled Curry Bowl <span class="badge badge-vegan">Vegan</span></h4><span class="dots"></span><span class="menu-price">LKR 2700</span></div>
+                    <p class="menu-item-desc">Young jackfruit with millet and pickles.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Jackfruit Bao with Coconut Sambol Slaw <span class="badge badge-vegan">Vegan</span></h4><span class="dots"></span><span class="menu-price">LKR 2500</span></div>
+                    <p class="menu-item-desc">Bao buns with jackfruit and coconut sambol slaw.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-32 reveal-up">
+            <h3 class="menu-category-title font-serif text-center mb-16">Desserts</h3>
+            <div class="grid md:grid-cols-2 gap-x-20 gap-y-12">
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Curd Milk Cake</h4><span class="dots"></span><span class="menu-price">LKR 1800</span></div>
+                    <p class="menu-item-desc">Soft sponge soaked in curd and coconut milk.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Coconut & Pandan Panna Cotta</h4><span class="dots"></span><span class="menu-price">LKR 1700</span></div>
+                    <p class="menu-item-desc">Silky panna cotta with passionfruit pearls.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Dark Chocolate & Chilli Lava Cake <span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 1900</span></div>
+                    <p class="menu-item-desc">Warm chocolate cake with chilli and coconut ice cream.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Tropical Fruit Degustation Plate <span class="badge badge-vegan">Vegan</span><span class="badge badge-gf">GF</span></h4><span class="dots"></span><span class="menu-price">LKR 1500</span></div>
+                    <p class="menu-item-desc">Seasonal fruits with lime and chilli salt.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Caramelized Banana with Kithul Syrup <span class="badge badge-vegan">Vegan</span><span class="badge badge-gf">GF</span></h4><span class="dots"></span><span class="menu-price">LKR 1600</span></div>
+                    <p class="menu-item-desc">Pan seared banana with palm treacle.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Coconut Kithul Creme Brulee</h4><span class="dots"></span><span class="menu-price">LKR 1900</span></div>
+                    <p class="menu-item-desc">Classic dessert infused with coconut and kithul.</p>
+                </div>
+                <div>
+                    <div class="price-line"><h4 class="menu-item-title">Spiced Mango & Passionfruit Cheesecake</h4><span class="dots"></span><span class="menu-price">LKR 2000</span></div>
+                    <p class="menu-item-desc">Creamy cheesecake with tropical flavors.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-24 mt-48 reveal-up">
+            <h2 class="text-darknight font-serif text-5xl md:text-6xl tracking-widest uppercase">The Falls Brunch</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-x-20 gap-y-24 mb-16">
+            <div class="reveal-up">
+                <h3 class="menu-category-title font-serif">Brunch Bowls & Lights</h3>
+                <div class="space-y-8">
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Serenity Egg Benedict <span class="badge badge-sig">Sig</span></h4><span class="dots"></span><span class="menu-price">LKR 3500</span></div>
+                        <p class="menu-item-desc">Poached eggs on coconut roti with curry leaf hollandaise.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Spiced Shakshuka Sri Lankan Style <span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 3000</span></div>
+                        <p class="menu-item-desc">Eggs in spicy tomato curry leaf sauce.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Gotukola Avocado Toast</h4><span class="dots"></span><span class="menu-price">LKR 3200</span></div>
+                        <p class="menu-item-desc">Sourdough with avocado and poached eggs.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Croissant with Spiced Chicken & Onion</h4><span class="dots"></span><span class="menu-price">LKR 3100</span></div>
+                        <p class="menu-item-desc">Buttery croissant filled with chicken and spices.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Crispy Chicken Kottu Burger <span class="badge badge-sig">Sig</span></h4><span class="dots"></span><span class="menu-price">LKR 3500</span></div>
+                        <p class="menu-item-desc">Crunchy chicken burger with kottu style slaw.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Lagoon Prawn Toast <span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 3600</span></div>
+                        <p class="menu-item-desc">Grilled sourdough with garlic prawns and chili butter.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Tropical Poke Bowl</h4><span class="dots"></span><span class="menu-price">LKR 3800</span></div>
+                        <p class="menu-item-desc">Rice with mango, avocado cucumber pickles served with chicken or prawns.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Coconut Veggie Power Bowl <span class="badge badge-vegan">Vegan</span></h4><span class="dots"></span><span class="menu-price">LKR 3200</span></div>
+                        <p class="menu-item-desc">Roasted vegetables millet coconut dressing.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Garden Fresh Salad <span class="badge badge-vegan">Vegan</span><span class="badge badge-gf">GF</span></h4><span class="dots"></span><span class="menu-price">LKR 2700</span></div>
+                        <p class="menu-item-desc">Gotukola cucumber herbs citrus dressing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal-up">
+                <h3 class="menu-category-title font-serif">Brunch - Sweet</h3>
+                <div class="space-y-8 mb-16">
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Tropical Coconut Smoothie Bowl</h4><span class="dots"></span><span class="menu-price">LKR 3000</span></div>
+                        <p class="menu-item-desc">Mango coconut banana smoothie topped with granola fruits and coconut.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Cinabun Caramel French Toast <span class="badge badge-sig">Sig</span></h4><span class="dots"></span><span class="menu-price">LKR 3200</span></div>
+                        <p class="menu-item-desc">Brioche soaked in cinnamon spiced milk served with caramel and fruits.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Overnight Oats & Chia <span class="badge badge-vegan">Vegan</span></h4><span class="dots"></span><span class="menu-price">LKR 2700</span></div>
+                        <p class="menu-item-desc">Oats with coconut milk chia seeds and fruit purée.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Banana & Kithul Pancakes</h4><span class="dots"></span><span class="menu-price">LKR 2900</span></div>
+                        <p class="menu-item-desc">Fluffy pancakes with banana and palm treacle.</p>
+                    </div>
+                </div>
+                
+                <h3 class="menu-category-title font-serif mt-12">Ad-Ons</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="price-line"><h4 class="menu-item-title text-lg">Avocado</h4><span class="dots"></span><span class="menu-price text-sm">LKR 800</span></div>
+                    <div class="price-line"><h4 class="menu-item-title text-lg">Extra Egg</h4><span class="dots"></span><span class="menu-price text-sm">LKR 600</span></div>
+                    <div class="price-line"><h4 class="menu-item-title text-lg">Bacon</h4><span class="dots"></span><span class="menu-price text-sm">LKR 1200</span></div>
+                    <div class="price-line"><h4 class="menu-item-title text-lg">Chicken</h4><span class="dots"></span><span class="menu-price text-sm">LKR 1300</span></div>
+                    <div class="price-line col-span-2"><h4 class="menu-item-title text-lg">Prawns</h4><span class="dots"></span><span class="menu-price text-sm">LKR 1800</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-24 mt-48 reveal-up">
+            <h2 class="text-darknight font-serif text-5xl md:text-6xl tracking-widest uppercase">High Tea Menus</h2>
+            <p class="text-buckthorn font-sans mt-4 tracking-widest text-sm uppercase font-medium">Curated Platters For Two</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-32">
+            <div class="p-10 border border-darknight/10 bg-white/40 shadow-sm reveal-up">
+                <h4 class="text-darknight font-serif text-3xl mb-6 text-center tracking-widest border-b border-buckthorn pb-4">January - March</h4>
+                <ul class="text-darknight/80 font-sans text-sm space-y-3 italic text-center mb-8">
+                    <li>Spiced Mango Tartlet <span class="badge badge-spicy">Spicy</span></li>
+                    <li>Caramelised Pineapple Upsidedown Cake</li>
+                    <li>Papaya and Lime Panna Cotta</li>
+                    <li>Grilled Chicken & Pineapple Chutney Finger Sandwich</li>
+                    <li>Spiced Prawn & Mango Salsa Sandwich<span class="badge badge-spicy">Spicy</span></li>
+                    <li>Crispy Banana Fritters</li>
+                    <li>Mango and Chili Chicken Sliders <span class="badge badge-spicy">Spicy</span></li>
+                    <li>Grilled Pineapple and Cheese Skewers</li>
+                </ul>
+                <div class="pt-6 border-t border-darknight/10 text-center">
+                    <p class="text-buckthorn uppercase tracking-widest text-[10px] mb-2 font-bold">Included Drinks</p>
+                    <p class="text-darknight font-sans text-sm font-medium">Mango Iced Tea | Pineapple Mint Cooler | Banana Coconut Smoothie</p>
+                </div>
+            </div>
+
+            <div class="p-10 border border-darknight/10 bg-white/40 shadow-sm reveal-up">
+                <h4 class="text-darknight font-serif text-3xl mb-6 text-center tracking-widest border-b border-buckthorn pb-4">April - June</h4>
+                <ul class="text-darknight/80 font-sans text-sm space-y-3 italic text-center mb-8">
+                    <li>Avocado Chocolate Mousse Cups</li>
+                    <li>Rambutan Pavlova Bites</li>
+                    <li>Mangosteen Cheesecake</li>
+                    <li>Chicken, Rambutan & Mild Curry Mayo Sandwich</li>
+                    <li>Mangoosteen Cream Cheese & Herb Sandwich</li>
+                    <li>Wood Apple Crème Brûlée</li>
+                    <li>Avocado and Prawn Crostini</li>
+                    <li>Rambutan and Chicken Salad Cups</li>
+                </ul>
+                <div class="pt-6 border-t border-darknight/10 text-center">
+                    <p class="text-buckthorn uppercase tracking-widest text-[10px] mb-2 font-bold">Included Drinks</p>
+                    <p class="text-darknight font-sans text-sm font-medium">Mangosteen Refresher | Avocado Milkshake | Rambutan Spritz</p>
+                </div>
+            </div>
+
+            <div class="p-10 border border-darknight/10 bg-white/40 shadow-sm reveal-up">
+                <h4 class="text-darknight font-serif text-3xl mb-6 text-center tracking-widest border-b border-buckthorn pb-4">July - September</h4>
+                <ul class="text-darknight/80 font-sans text-sm space-y-3 italic text-center mb-8">
+                    <li>Jackfruit Crème Brûlée Tart</li>
+                    <li>Soursop Mousse Cups</li>
+                    <li>Guava and Cream Cheese Tartlets</li>
+                    <li>Pulled Jackfruit & Spiced Coconut Sandwich<span class="badge badge-vegan">Vegan</span><span class="badge badge-spicy">Spicy</span></li>
+                    <li> Pink Guava & Cream Cheese Tea Sandwich </li>
+                    <li>Durian Cheesecake</li>
+                    <li>Pulled Jackfruit Sliders</li>
+                    <li>Guava and Spiced Cheese Bites</li>
+                </ul>
+                <div class="pt-6 border-t border-darknight/10 text-center">
+                    <p class="text-buckthorn uppercase tracking-widest text-[10px] mb-2 font-bold">Included Drinks</p>
+                    <p class="text-darknight font-sans text-sm font-medium">Soursop Cooler | Pink Guava Juice | Jackfruit Milk Drink</p>
+                </div>
+            </div>
+
+            <div class="p-10 border border-darknight/10 bg-white/40 shadow-sm reveal-up">
+                <h4 class="text-darknight font-serif text-3xl mb-6 text-center tracking-widest border-b border-buckthorn pb-4">October - December</h4>
+                <ul class="text-darknight/80 font-sans text-sm space-y-3 italic text-center mb-8">
+                    <li>Custard Apple Cream Cups</li>
+                    <li>Rose Apple Sorbet Bites</li>
+                    <li>Passion Fruit Tartlets</li>
+                    <li>Passion Fruit Chicken & Lettuce Sandwich</li>
+                    <li>Rose Apple Chutney & Smoked Chicken Sandwich</li>
+                    <li>Pineapple Coconut Cake Cubes</li>
+                    <li>Passion Fruit Chicken Canapés</li>
+                    <li>Rose Apple and Feta Skewers</li>
+                </ul>
+                <div class="pt-6 border-t border-darknight/10 text-center">
+                    <p class="text-buckthorn uppercase tracking-widest text-[10px] mb-2 font-bold">Included Drinks</p>
+                    <p class="text-darknight font-sans text-sm font-medium">Passion Fruit Iced Tea | Rose Apple Cooler | Tropical Fruit Punch</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-24 mt-48 reveal-up">
+            <h2 class="text-darknight font-serif text-5xl md:text-6xl tracking-widest uppercase">Sips Beyond The Waterfall</h2>
+            <p class="text-buckthorn font-sans mt-4 tracking-widest text-sm uppercase font-medium">Beverage Menu</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-x-20 gap-y-24 mb-24">
+            <div class="reveal-up">
+                <h3 class="menu-category-title font-serif">Cocktails</h3>
+                <div class="space-y-8">
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Ceylon Spice Arrack Sour</h4><span class="dots"></span><span class="menu-price">LKR 2800</span></div>
+                        <p class="menu-item-desc">Arrack fresh lime kithul syrup egg white cinnamon dust A balanced blend of citrus sweetness and spice.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">King Coconut Mojito</h4><span class="dots"></span><span class="menu-price">LKR 2600</span></div>
+                        <p class="menu-item-desc">White rum king coconut water mint lime palm sugar Light refreshing and tropical.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Spiced Tamarind Margarita <span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 2900</span></div>
+                        <p class="menu-item-desc">Tequila tamarind pulp lime chili salt rim Bold tangy and slightly spicy.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Kandy Cinnamon Old Fashioned</h4><span class="dots"></span><span class="menu-price">LKR 3200</span></div>
+                        <p class="menu-item-desc">Bourbon kithul syrup cinnamon bitters Warm rich and aromatic.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Kithul Smoke Sour</h4><span class="dots"></span><span class="menu-price">LKR 2800</span></div>
+                        <p class="menu-item-desc">Arrack kithul syrup fresh lime egg white Rich smoky and smooth with natural sweetness.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Watermelon Rind Refresher</h4><span class="dots"></span><span class="menu-price">LKR 2600</span></div>
+                        <p class="menu-item-desc">Vodka watermelon rind juice lime mint Light and refreshing with a zero waste approach.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Spiced Chili Mango Sour <span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 2800</span></div>
+                        <p class="menu-item-desc">Vodka mango purée lime chili egg white A bold fusion of sweet sour and spice.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Coconut Husk Old Fashioned</h4><span class="dots"></span><span class="menu-price">LKR 3200</span></div>
+                        <p class="menu-item-desc">Dark arrack kithul treacle bitters Smoky and rich with deep Sri Lankan character.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Banana Peel Negroni <span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 3000</span></div>
+                        <p class="menu-item-desc">Tequila tamarind pulp lime chili salt rim Bold tangy and slightly spicy.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Curry Leaf Citrus Spritz</h4><span class="dots"></span><span class="menu-price">LKR 2700</span></div>
+                        <p class="menu-item-desc">Gin curry leaf infusion lime soda Refreshing with Sri Lankan herbal notes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal-up">
+                <h3 class="menu-category-title font-serif">Mocktails</h3>
+                <div class="space-y-8">
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Pol Sambol Cooler <span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 1600</span></div>
+                        <p class="menu-item-desc">King coconut water lime chili mint A bold and refreshing drink inspired by Sri Lankan pol sambol.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Tropical Temple Bliss</h4><span class="dots"></span><span class="menu-price">LKR 1800</span></div>
+                        <p class="menu-item-desc">Mango passion fruit coconut milk honey Smooth and creamy tropical blend.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Ceylon Iced Spice Tea Spritzer</h4><span class="dots"></span><span class="menu-price">LKR 1500</span></div>
+                        <p class="menu-item-desc">Ceylon tea cinnamon lime soda Lightly spiced and refreshing.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Watermelon Mint Refresher</h4><span class="dots"></span><span class="menu-price">LKR 1400</span></div>
+                        <p class="menu-item-desc">Fresh watermelon mint lime Light and cooling.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Pineapple Ginger Fizz</h4><span class="dots"></span><span class="menu-price">LKR 1500</span></div>
+                        <p class="menu-item-desc">Pineapple juice ginger syrup soda Zesty and refreshing.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Passion Lime Cooler</h4><span class="dots"></span><span class="menu-price">LKR 1400</span></div>
+                        <p class="menu-item-desc">Passion fruit lime juice sugar syrup Tangy and vibrant.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Tamarind Spice Soda <span class="badge badge-spicy">Spicy</span></h4><span class="dots"></span><span class="menu-price">LKR 1500</span></div>
+                        <p class="menu-item-desc">Tamarind black salt chili soda Bold and flavorful.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Cucumber King Coconut Splash</h4><span class="dots"></span><span class="menu-price">LKR 1400</span></div>
+                        <p class="menu-item-desc">King coconut water cucumber lime Light and hydrating.</p>
+                    </div>
+                    <div>
+                        <div class="price-line"><h4 class="menu-item-title">Mango Basil Smash</h4><span class="dots"></span><span class="menu-price">LKR 1600</span></div>
+                        <p class="menu-item-desc">Mango purée basil lemon Fruity with herbal notes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 reveal-up mb-24">
+            
+            <div>
+                <h3 class="menu-category-title font-serif text-xl">Fresh Juices</h3>
+                <p class="text-darknight/60 italic text-sm mb-4">All juices LKR 950</p>
+                <ul class="space-y-2 text-sm font-sans text-darknight/80 font-medium">
+                    <li>King Coconut Juice</li>
+                    <li>Pineapple Juice</li>
+                    <li>Mango Juice</li>
+                    <li>Watermelon Juice</li>
+                    <li>Orange Juice</li>
+                    <li>Lime Juice</li>
+                    <li>Strawberry Juice</li>
+                    <li>Green Apple Juice</li>
+                    <li>Carrot and Orange Juice</li>
+                    <li>Tropical Mixed Juice</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="menu-category-title font-serif text-xl">Smoothies</h3>
+                <div class="space-y-4 mb-10">
+                    <div><div class="price-line"><h4 class="font-sans text-sm font-semibold text-darknight">Coconut and Mango</h4><span class="dots"></span><span class="text-sm font-medium text-darknight">LKR 1600</span></div><p class="text-darknight/60 text-xs italic">Fresh tropical blend with natural sweetness.</p></div>
+                    <div><div class="price-line"><h4 class="font-sans text-sm font-semibold text-darknight">Pineapple and Ginger Cooler</h4><span class="dots"></span><span class="text-sm font-medium text-darknight">LKR 1500</span></div><p class="text-darknight/60 text-xs italic">Zesty and refreshing with a tropical kick.</p></div>
+                    <div><div class="price-line"><h4 class="font-sans text-sm font-semibold text-darknight">Banana and Honey</h4><span class="dots"></span><span class="text-sm font-medium text-darknight">LKR 1400</span></div><p class="text-darknight/60 text-xs italic">Creamy and naturally sweet.</p></div>
+                    <div><div class="price-line"><h4 class="font-sans text-sm font-semibold text-darknight">Strawberry Yogurt</h4><span class="dots"></span><span class="text-sm font-medium text-darknight">LKR 1600</span></div><p class="text-darknight/60 text-xs italic">Rich and refreshing fruity yogurt blend.</p></div>
+                </div>
+
+                <h3 class="menu-category-title font-serif text-xl">Milkshakes</h3>
+                <div class="space-y-3 text-sm font-sans text-darknight font-medium">
+                    <div class="price-line"><span>Chocolate Milkshake</span><span class="dots"></span><span>LKR 1600</span></div>
+                    <div class="price-line"><span>Strawberry Milkshake</span><span class="dots"></span><span>LKR 1500</span></div>
+                    <div class="price-line"><span>Vanilla Milkshake</span><span class="dots"></span><span>LKR 1400</span></div>
+                    <div class="price-line"><span>Oreo Milkshake</span><span class="dots"></span><span>LKR 1700</span></div>
+                    <div class="price-line"><span>Caramel Milkshake</span><span class="dots"></span><span>LKR 1600</span></div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="menu-category-title font-serif text-xl">Coffee</h3>
+                <div class="space-y-3 text-sm font-sans mb-10 text-darknight font-medium">
+                    <div class="price-line"><span>Espresso</span><span class="dots"></span><span>LKR 700</span></div>
+                    <div class="price-line"><span>Double Espresso</span><span class="dots"></span><span>LKR 900</span></div>
+                    <div class="price-line"><span>Americano</span><span class="dots"></span><span>LKR 800</span></div>
+                    <div class="price-line"><span>Cappuccino</span><span class="dots"></span><span>LKR 1100</span></div>
+                    <div class="price-line"><span>Latte</span><span class="dots"></span><span>LKR 1100</span></div>
+                    <div class="price-line"><span>Flat White</span><span class="dots"></span><span>LKR 1200</span></div>
+                    <div class="price-line"><span>Iced Latte</span><span class="dots"></span><span>LKR 1400</span></div>
+                    <div class="price-line"><span>Iced Americano</span><span class="dots"></span><span>LKR 1200</span></div>
+                </div>
+
+                <h3 class="menu-category-title font-serif text-xl">Soft Drinks</h3>
+                <div class="space-y-3 text-sm font-sans text-darknight font-medium">
+                    <div class="price-line"><span>Coca Cola</span><span class="dots"></span><span>LKR 850</span></div>
+                    <div class="price-line"><span>Diet Coke</span><span class="dots"></span><span>LKR 850</span></div>
+                    <div class="price-line"><span>Sprite</span><span class="dots"></span><span>LKR 850</span></div>
+                    <div class="price-line"><span>Fanta Orange</span><span class="dots"></span><span>LKR 900</span></div>
+                    <div class="price-line"><span>Soda Water</span><span class="dots"></span><span>LKR 750</span></div>
+                    <div class="price-line"><span>Tonic Water</span><span class="dots"></span><span>LKR 950</span></div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="menu-category-title font-serif text-xl">Water</h3>
+                <div class="space-y-3 text-sm font-sans text-darknight font-medium">
+                    <div class="price-line"><span>Still Water Small</span><span class="dots"></span><span>LKR 400</span></div>
+                    <div class="price-line"><span>Still Water Large</span><span class="dots"></span><span>LKR 600</span></div>
+                    <div class="price-line"><span>Sparkling Water Small</span><span class="dots"></span><span>LKR 1000</span></div>
+                    <div class="price-line"><span>Sparkling Water Large</span><span class="dots"></span><span>LKR 1400</span></div>
+                    <div class="price-line"><span>Detox Water</span><span class="dots"></span><span>LKR 900</span></div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer class="py-16 px-6 text-center bg-darknight">
+        <p class="text-sand/60 font-sans text-[10px] tracking-[0.2em] uppercase">© 2026 Serenity Cove | Ella, Sri Lanka <br><br>
+                Designed & Developed by 
+            <a href="https://linktr.ee/didula.daluwaththa" target="_blank" class="hover:text-buckthorn transition-colors duration-300 underline underline-offset-4 decoration-sand/20">
+                Didula Daluwaththa
+            </a>
+        </p>
+    </footer>
+
+    <script>
+        // Load Navbar
+        fetch('navbar.html').then(r => r.text()).then(d => {
+            document.getElementById('nav-placeholder').innerHTML = d;
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) navbar.classList.add('nav-scrolled');
+                else navbar.classList.remove('nav-scrolled');
+            });
+        });
+
+        // Animations
+        gsap.registerPlugin(ScrollTrigger);
+        window.onload = () => {
+            gsap.to("#hero-bg", { opacity: 1, scale: 1, duration: 1.5, ease: "power2.out" });
+            gsap.to("#hero-text", { opacity: 1, y: 0, duration: 1, delay: 0.5 });
+        };
+
+        document.querySelectorAll('.reveal-up').forEach(el => {
+            gsap.to(el, {
+                scrollTrigger: { trigger: el, start: "top 90%" },
+                opacity: 1, y: 0, duration: 0.8
+            });
+        });
+        document.querySelectorAll('.reveal-left').forEach(el => {
+            gsap.to(el, {
+                scrollTrigger: { trigger: el, start: "top 90%" },
+                opacity: 1, x: 0, duration: 0.8
+            });
+        });
+    </script>
+</body>
+</html>
