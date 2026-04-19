@@ -1,73 +1,64 @@
-                	Serenity Cove | Cave Dining Website
-A luxury, immersive restaurant website built for a unique waterfall cave dining 				experience in Ella, Sri Lanka.
+# 🌿 Serenity Cove | Luxury Cave Dining Web Experience
 
+> A bespoke front-end web interface developed for a conceptual luxury waterfall cave dining restaurant in Ella, Sri Lanka. 
 
-	📖 Overview
-	------------
-Serenity Cove is a conceptual luxury dining destination. This repository contains the front-end code for their official website, designed to reflect the restaurant's blend of nature, exclusivity, and modern fusion cuisine. The UI features a bespoke earthy color palette, smooth scroll animations, and a premium typographic hierarchy.
+**Live Demo:** [View Serenity Cove Here](https://diduladaluwaththa.github.io/serenity-cove/)
 
+## 📖 Overview
+Serenity Cove is an immersive, high-end digital presence created to mirror a luxury restaurant's physical brand—blending nature, exclusivity, and a zero-waste philosophy. This project was commissioned by hospitality students at the **William Angliss Institute, Sri Lanka** for their final capstone hotel project. 
 
-	✨ Key Features
-- Immersive Animations: Utilizes GSAP & ScrollTrigger for elegant fade-ins, parallax hero sections, and synchronized content reveals.
+Moving away from standard templates, this project features a custom-engineered UI, utilizing a bespoke nature-inspired color palette, smooth scroll animations, and a premium typographic hierarchy.
 
-- Custom Design System: Built with Tailwind CSS, featuring a meticulously injected custom color configuration based on Pantone and Dulux nature-inspired tones.
+## ✨ Key Features
+* **Custom Design System:** Built with a fully customized **Tailwind CSS** configuration, mapping exact Pantone and Dulux shades to evoke the feeling of sandy beaches, deep caves, and rich forests.
+* **Immersive Animations:** Utilizes **GSAP (GreenSock)** and **ScrollTrigger** for elegant parallax hero sections, custom text-glow effects, and synchronized content reveals.
+* **Dynamic Navigation:** A responsive, glassmorphism-styled `navbar.html` that is dynamically fetched across all pages using Vanilla JavaScript and transitions cleanly on scroll.
+* **Fully Responsive:** Fluid typography and flexible CSS Grid layouts ensure a flawless, premium experience across mobile, tablet, and desktop displays.
 
-- Dynamic Navigation: A responsive, glassmorphism-styled navbar.html that is dynamically fetched across all pages and transitions on scroll.
+## 🛠️ Tech Stack
+* **HTML5** (Semantic structure)
+* **Tailwind CSS** (Via CDN with a custom inline theme configuration)
+* **GSAP & ScrollTrigger** (High-performance scroll animations)
+* **Vanilla JavaScript** (Component fetching and DOM manipulation)
+* **Google Fonts** (*Cormorant Garamond* for luxury headings, *Inter* for clean UI copy)
 
-- Fully Responsive: Fluid typography and flexible grid layouts ensure a flawless experience across mobile, tablet, and desktop displays.
+## 🎨 Brand Color Palette
+The UI abandons standard black and white in favor of a warm "Nature & Luxury" palette:
+* `bg-sand` (#E3DACF) - Primary background (Dulux Sandy Beach)
+* `text-darknight` (#454341) - Primary text & footers (Pantone Dark Night)
+* `bg-treetop` (#4B5E40) - Primary Call-to-Action buttons & Vegan badges (Pantone Treetop Green)
+* `text-buckthorn` (#9C6D33) - Accents, borders & Signature badges (Pantone Buckthorn Brown)
+* `text-daphne` (#2A5C8A) - Subtle highlights & GF badges (Pantone Daphne Blue)
 
-- Modern Form Handling: A beautifully styled reservation system ready for backend integration.
+## 📂 Project Structure
 
-
-	🛠️ Tech Stack
-	-------------
-
-  HTML5 (Semantic structure)
-
-- Tailwind CSS (Via CDN for rapid, utility-first styling)
-
-- GSAP / ScrollTrigger (High-performance scroll animations)
-
-- Vanilla JavaScript (Component fetching and DOM manipulation)
-
-- Google Fonts (Cormorant Garamond for luxury headings, Inter for clean UI copy)
-
- 	🎨 Color Palette
-	----------------
-- The UI completely abandons standard black and white in favor of a custom "Nature & Luxury" palette:
-
-- bg-sand (#E3DACF) - Primary background (Dulux Sandy Beach)
-
-- text-darknight (#454341) - Primary text (Pantone Dark Night)
-
-- bg-treetop (#4B5E40) - Primary Call-to-Action buttons (Pantone Treetop Green)
-
-- text-buckthorn (#9C6D33) - Accents & borders (Pantone Buckthorn Brown)
-
-- text-daphne (#2A5C8A) - Subtle highlights (Pantone Daphne Blue)
-
-	📂 Project Structure
-	--------------------
-
+```text
 ├── index.html          # Home / About Us page
 ├── experience.html     # Cave dining & philosophy showcase
 ├── menu.html           # A La Carte, Brunch, High Tea & Beverage menus
 ├── reserve.html        # Booking form & policies
 ├── navbar.html         # Reusable navigation component
-├── herobg.jpg		# Local image asset
-├── exp-hero.jpg	# Local image asset
-├── menu-hero.jpg	# Local image asset
-└── ...
+└── images/             # Local image assets
+    ├── herobg.jpg
+    ├── exp-hero.jpg
+    ├── menu-hero.jpg
+    └── ...
+```
 
+## 🚀 How to Run Locally
+Because this project uses the JavaScript `fetch()` API to load the `navbar.html` file globally across the site, it needs to be run through a local web server. Opening the HTML files directly in your browser (via `file://`) will cause a CORS error, and the navbar will not load.
 
-Take a look at the live project here: https://diduladaluwaththa.github.io/serenity-cove/
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/diduladaluwaththa/serenity-cove.git](https://github.com/diduladaluwaththa/serenity-cove.git)
 
-	🚀 How to Run Locally
-	---------------------
-Because this project uses the Javascript fetch() API to load the navbar.html file into the other pages, it needs to be run through a local web server (opening the files directly via file:// in your browser will cause a CORS error for the navbar).
+2. Open the project folder in **VS Code**.
+3. Install the **Live Server** extension.
+4. Click **"Go Live"** at the bottom right of your editor to spin up a local server.
 
-
-👨‍💻 Designed & Developed By Didula Daluwaththa
-
+## 👨‍💻 Author
+**Didula Daluwaththa**
+* [LinkedIn](www.linkedin.com/in/diduladaluwaththa) 
+* [Linktree](https://linktr.ee/didula.daluwaththa)
 
 
